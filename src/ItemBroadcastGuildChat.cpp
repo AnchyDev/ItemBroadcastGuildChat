@@ -60,7 +60,6 @@ void ItemBroadcastGuildChatPlayerScript::BroadcastItemToGuild(Player* player, It
         return;
     }
 
-    auto itemProto = item->GetTemplate();
     auto guild = player->GetGuild();
 
     if (!guild)
