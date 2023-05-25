@@ -12,5 +12,12 @@ This module broadcasts items you receive to the guild chat if it has the flag `I
 - Be in a guild.
 - Loot the item and observe the broadcast to guild.
 
+## Example Queries
+### Flag all mounts
+```sql
+SET @ITEM_FLAG_REPORT_TO_GUILD_CHAT := 1073741824;
+UPDATE item_template SET item_template.Flags = (item_template.Flags + @ITEM_FLAG_REPORT_TO_GUILD_CHAT) WHERE item_template.class = 15 AND item_template.subclass = 5 AND (item_template.Flags & @ITEM_FLAG_REPORT_TO_GUILD_CHAT) = 0;
+```
+
 ## Contact
 If you would like to help out with the mod or just need help there is a [Discord Server](https://discord.gg/xdVPGcpJ8C) you can join.
