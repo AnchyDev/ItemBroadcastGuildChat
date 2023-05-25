@@ -14,9 +14,15 @@ This module broadcasts items you receive to the guild chat if it has the flag `I
 
 ## Example Queries
 ### Flag all mounts
+#### Add Flags
 ```sql
 SET @ITEM_FLAG_REPORT_TO_GUILD_CHAT := 1073741824;
 UPDATE item_template SET item_template.Flags = (item_template.Flags + @ITEM_FLAG_REPORT_TO_GUILD_CHAT) WHERE item_template.class = 15 AND item_template.subclass = 5 AND (item_template.Flags & @ITEM_FLAG_REPORT_TO_GUILD_CHAT) = 0;
+```
+#### Remove Flags
+```sql
+SET @ITEM_FLAG_REPORT_TO_GUILD_CHAT := 1073741824;
+UPDATE item_template SET item_template.Flags = (item_template.Flags - @ITEM_FLAG_REPORT_TO_GUILD_CHAT) WHERE item_template.class = 15 AND item_template.subclass = 5 AND (item_template.Flags & @ITEM_FLAG_REPORT_TO_GUILD_CHAT) = @ITEM_FLAG_REPORT_TO_GUILD_CHAT;
 ```
 
 ## Contact
